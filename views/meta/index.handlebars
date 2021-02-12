@@ -1,0 +1,15 @@
+<h2>Lista de Metas: </h2>
+<hr>
+<a href="/meta/inserir"><button>Inserir nova meta</button></a>
+
+{{#each index}}
+    <div class="card">
+        <div class="card-body">
+            <h4>{{titulo}}</h4>
+            <small>{{descricao}}</small><br>
+            <small>Data de criação:{{date}}</small>
+        </div>
+    </div>
+{{else}}
+
+{{/each}}
