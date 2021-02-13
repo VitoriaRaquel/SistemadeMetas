@@ -7,9 +7,14 @@
         <div class="card-body">
             <h4>{{titulo}}</h4>
             <small>{{descricao}}</small><br>
-            <small>Data de criação:{{date}}</small>
+            <small>Data de criação:{{date}}</small><br>
+            <a href="/meta/index/edit/{{_id}}"><button >Editar Meta</button></a>
+            <form action="/meta/index/deletar" method="POST">
+                <input type="hidden" name="id" value="{{_id}}"><br>
+                <button type="submit" class="btn btn-danger">Deletar meta</button>
+            </form>
         </div>
     </div>
 {{else}}
-
+    <h4>Nenhuma categoria registrada</h4>
 {{/each}}
