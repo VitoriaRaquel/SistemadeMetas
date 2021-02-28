@@ -1,5 +1,5 @@
 # Sistema de Metas
-O projeto surgiu em 2021 com o objetivo de possibilitar ao usuário o gerenciamento de suas metas de forma ágil. Atualmente desenvolvido pelos estudantes Neemias Renan, Vitória Raquel e Sthéfany de Lima, orientado pelo Prof. Jose Ewerton na turma de Programação para Internet no IFRN - Ceará-Mirim.
+O projeto surgiu em 2021 com o objetivo de possibilitar ao usuário o gerenciamento de suas metas de forma ágil. Atualmente desenvolvido pelos estudantes **Neemias Renan, Vitória Raquel e Sthéfany de Lima**, orientado pelo **Prof. Jose Ewerton** na turma de **Programação para Internet** no **IFRN - Ceará-Mirim**.
 
 ## Tecnologias usadas 📚
 * Node.js
