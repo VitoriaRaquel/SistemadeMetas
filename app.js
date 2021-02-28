@@ -3,6 +3,7 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const app = express()
+const path = require("path")
 const meta = require("./routes/meta")
 const { Mongoose } = require('mongoose')
 const mongoose = require("mongoose")
@@ -43,7 +44,9 @@ app.use((req,res,next)=>{
         console.log("Erro ao se conectar: "+err)
     })
     
-//
+// Public
+    app.use(express.static(path.join(__dirname,"public")))
+
 
 //Rotas
 app.use('/meta',meta)
