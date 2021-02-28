@@ -1,20 +1,49 @@
-<h2>Lista de Metas: </h2>
-<hr>
-<a href="/meta/inserir"><button>Inserir nova meta</button></a>
+<div class="btn_voltar">
+    <a href="#">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 24L12 16L20 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+</div>
 
-{{#each index}}
-    <div class="card">
-        <div class="card-body">
-            <h4>{{titulo}}</h4>
-            <small>{{descricao}}</small><br>
-            <small>Data de criação:{{date}}</small><br>
-            <a href="/meta/index/edit/{{_id}}"><button >Editar Meta</button></a>
-            <form action="/meta/index/deletar" method="POST">
-                <input type="hidden" name="id" value="{{_id}}"><br>
-                <button type="submit" class="btn btn-danger">Deletar meta</button>
-            </form>
-        </div>
+<section class="metas">
+    <div class="div_metas">
+        <h2 id="titulo_meta">Suas Metas.</h2>
+        <small id="info_editar">Clique no titulo da meta para edita-la.</small>
+        {{#each index}}
+            <div class="card">
+                <div class="card-body">
+                    <div class="dados">
+                        <a href="/meta/index/edit/{{_id}}">
+                            <h4 class="card_titulo">{{titulo}}</h4>
+                            <small class="card_descricao">{{descricao}}</small>
+                    {{!-- <small>Data de criação:{{date}}</small><br> --}}
+                        </a>
+                    </div>
+
+                    <div class="apagar">
+                        <form action="/meta/index/deletar" method="POST">
+                            <input type="hidden" name="id" value="{{_id}}">
+                            <button type="submit" class="btn_deletar">
+                                <svg width="2em" height="3em" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 9H8.33333H35" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M13.3333 9V6C13.3333 5.20435 13.6845 4.44129 14.3096 3.87868C14.9347 3.31607 15.7826 3 16.6666 3H23.3333C24.2174 3 25.0652 3.31607 25.6903 3.87868C26.3155 4.44129 26.6666 5.20435 26.6666 6V9M31.6666 9V30C31.6666 30.7956 31.3155 31.5587 30.6903 32.1213C30.0652 32.6839 29.2174 33 28.3333 33H11.6666C10.7826 33 9.93474 32.6839 9.30962 32.1213C8.6845 31.5587 8.33331 30.7956 8.33331 30V9H31.6666Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16.6667 16.5V25.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M23.3333 16.5V25.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        {{else}}
+        {{/each}} 
     </div>
-{{else}}
-    <h4>Nenhuma categoria registrada</h4>
-{{/each}}
+   
+</section>
+
+
+<div class="rodape">
+    <a href="/meta/inserir"><button class="btn_inserirMeta">Adicionar Meta</button></a>
+</div>

@@ -25,8 +25,12 @@ router.post("/meta/nova",(req, res)=>{
     var erros = []
 
     if(!req.body.titulo || typeof req.body.titulo == undefined || req.body.titulo == null){
-        erros.push({texto:"Nome inválido"})
+        erros.push({texto:"Preencha todos os campos"})
+    }
 
+    else if(!req.body.descricao || typeof req.body.descricao == undefined || req.body.descricao == null)
+    {
+        erros.push({texto:"Preencha todos os campos"})
     }
     if(erros.length >0){
         res.render("meta/inserir",{erros: erros})
@@ -59,9 +63,13 @@ router.post("/index/edit", (req, res) => {
     var erros = []
 
     if(!req.body.titulo || typeof req.body.titulo == undefined || req.body.titulo == null){
-        erros.push({texto:"Nome inválido"})
-
+        erros.push({texto:"Preencha todos os campos"})
     }
+    if(!req.body.descricao || typeof req.body.descricao == undefined || req.body.descricao == null)
+    {
+        erros.push({texto:"Preencha todos os campos"})
+    }
+
     if(erros.length >0){
         res.render("meta/inserir",{erros: erros})
     }else{
