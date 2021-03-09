@@ -12,6 +12,8 @@ const flash = require("connect-flash")
 const usuarios = require("./routes/usuario")
 const passport = require("passport")
 require("./config/auth")(passport)
+
+//misericordia
 //Configurações
 //Sessão
     app.use(session({
