@@ -3,9 +3,10 @@ const router = express.Router()
 const mongoose = require("mongoose") //importa o mongoose
 require("../models/Metabd") //chama o arquivo do model
 const Metabd = mongoose.model("metas")//chama a função
- 
+const {acesso} = require ("../helpes/acesso")
+
 //Rota 
-router.get('/', (req,res)=>{
+router.get('/',  acesso, (req,res)=>{
     Metabd.find().lean().sort({date:'desc'}).then((index)=>{
         res.render("meta/index",{index:index})
     }).catch((err)=>{
@@ -16,11 +17,11 @@ router.get('/', (req,res)=>{
 })
  
 //Rota inserir meta
-router.get('/inserir', (req,res)=>{
+router.get('/inserir', acesso, (req,res)=>{
     res.render("meta/inserir")
 })
 
-router.post("/meta/nova",(req, res)=>{
+router.post("/meta/nova", acesso,(req, res)=>{
     //validação de titulo
     var erros = []
 
@@ -49,7 +50,7 @@ router.post("/meta/nova",(req, res)=>{
     }
    
 })
-router.get("/index/edit/:id",(req, res)=>{
+router.get("/index/edit/:id",  acesso,(req, res)=>{
     Metabd.findOne({_id:req.params.id}).lean().then((index) =>{
         res.render("meta/editmetas",{index: index})
     }).catch((err)=>{
@@ -58,7 +59,7 @@ router.get("/index/edit/:id",(req, res)=>{
     })
    
 })
-router.post("/index/edit", (req, res) => {
+router.post("/index/edit", acesso,(req, res) => {
 
     var erros = []
 
@@ -94,7 +95,7 @@ router.post("/index/edit", (req, res) => {
 }
 })
 
-router.post("/index/deletar", (req, res) =>{
+router.post("/index/deletar",  acesso,(req, res) =>{
     Metabd.remove({_id: req.body.id}).then(()=>{
         req.flash("success_msg", "Deletado com sucesso")
         res.redirect("/meta")
